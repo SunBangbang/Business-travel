@@ -3,7 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './tool/axios'
+// import 'amfe-flexible';
+// 引入公共方法
+import commonFun from './tool/commonFun'
+import 'normalize.css'
+// import Vant from 'vant'
+// import 'vant/lib/index.css'
 
+// Vue.use(Vant)
+Vue.use(commonFun)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
