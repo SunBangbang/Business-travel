@@ -59,7 +59,7 @@
         @confirm="comfirmEndTime"
       />
     </van-popup>
-    <div class="tabbar">
+    <!-- <div class="tabbar">
       <div>
         <van-icon name="wap-home"></van-icon>
         <div>首页</div>
@@ -71,15 +71,16 @@
       <div class="center">
         <van-icon name="plus"></van-icon>
       </div>
-    </div>
+    </div> -->
+    <tab-bar index="" my="active"></tab-bar>
   </div>
 </template>
 
 <script>
-import { Button, Field, Popup, DatetimePicker, Toast } from "vant";
+import { Cell, CellGroup, Icon, Button, Field, Popup, DatetimePicker, Toast } from "vant";
 import { release } from "@/apis/index";
+import tabBar from "./tabbar.vue";
 export default {
-  name: "index",
   data() {
     return {
       start_time: "",
@@ -160,53 +161,63 @@ export default {
         }
       });
     }
+  },
+  components:{
+    "van-cell": Cell, 
+    "van-cell-group" : CellGroup, 
+    "van-icon": Icon,
+    "van-button": Button, 
+    "van-field": Field, 
+    "van-popup": Popup, 
+    "van-datetime-picker": DatetimePicker,
+    tabBar
   }
 };
 </script>
 
 <style lang="less" scoped>
-.tabbar {
-  height: 45px;
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 15%;
-  position: fixed;
-  left: 0;
-  width: 70%;
-  bottom: 0;
-  z-index: 99999;
-  background-color: #fff;
-  .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -30px;
-    left: 40vw;
-    width: 20vw;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #fff;
-    z-index: 6666;
-    color: #afafaf;
-    i {
-      font-size: 26px;
-      font-weight: bold;
-    }
-  }
-  > div {
-    text-align: center;
-    color: #eb2211;
-    font-size: 12px;
-    i {
-      font-size: 22px;
-      font-weight: bold;
-    }
-  }
-  .active {
-    color: #afafaf;
-  }
-}
+// .tabbar {
+//   height: 45px;
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 6px 15%;
+//   position: fixed;
+//   left: 0;
+//   width: 70%;
+//   bottom: 0;
+//   z-index: 99999;
+//   background-color: #fff;
+//   .center {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     position: absolute;
+//     top: -30px;
+//     left: 40vw;
+//     width: 20vw;
+//     height: 60px;
+//     border-radius: 50%;
+//     background-color: #fff;
+//     z-index: 6666;
+//     color: #afafaf;
+//     i {
+//       font-size: 26px;
+//       font-weight: bold;
+//     }
+//   }
+//   > div {
+//     text-align: center;
+//     color: #eb2211;
+//     font-size: 12px;
+//     i {
+//       font-size: 22px;
+//       font-weight: bold;
+//     }
+//   }
+//   .active {
+//     color: #afafaf;
+//   }
+// }
 .home {
   height: 100vh;
   background-color: #f4f4f4;

@@ -13,9 +13,7 @@
             autosize
             style="margin-bottom: 30px"
           />
-          <!--          <div style="padding: 10px 0 30px 0;">请提交你需要反馈的信息或图片</div>-->
           <van-uploader v-model="fileList" multiple :max-count="3" />
-          <!--          <van-uploader multiple :max-count="3" :after-read="onRead" :accept="'image/*'"/>-->
         </div>
       </div>
       <van-button round type="danger" @click="postMessage">立即发送</van-button>
@@ -25,7 +23,7 @@
 <script>
 import axios from "axios";
 import qs from "qs";
-import { Uploader, Toast } from "vant";
+import { NavBar, Uploader, Button, Field, Toast } from "vant";
 export default {
   data() {
     return {
@@ -85,6 +83,12 @@ export default {
     afterRead(file) {
       console.log(file);
     }
+  },
+  components:{
+    "van-uploader": Uploader,
+    "van-button": Button, 
+    "van-field": Field, 
+    "van-nav-bar": NavBar
   }
 };
 </script>

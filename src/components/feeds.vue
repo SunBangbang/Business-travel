@@ -11,8 +11,6 @@
             v-for="(item,index) in message.image"
             :key="index"
           />
-          <!--          <img src="../assets/hua.jpg" alt="Smiley face">-->
-          <!--          <img src="../assets/hua.jpg" alt="Smiley face">-->
         </div>
       </div>
     </div>
@@ -22,15 +20,22 @@
       <van-button @click="disagree" color="#ee2d16" round type="info">不满意</van-button>
     </div>
     <div>
-      <van-dialog v-model="show" title="实际支付金额" :show-confirm-button="false" close-on-click-overlay>
-        <!--        <div class="shu"><van-input type="number" v-model="money"></div>-->
+      <van-dialog
+        v-model="isShow"
+        title="实际支付金额"
+        :show-confirm-button="false"
+      >
         <div class="shu">
           <van-field v-model="money" type="number" placeholder="请输入金额" />
         </div>
         <van-button type="danger" @click="manYi">确认</van-button>
       </van-dialog>
 
-      <van-dialog v-model="show1" title="反馈" :show-confirm-button="false" close-on-click-overlay>
+      <van-dialog
+        v-model="isShow1"
+        title="反馈"
+        :show-confirm-button="false"
+      >
         <div class="shu1">
           <van-field v-model="comment" type="text" placeholder="请输入备注" />
         </div>
@@ -42,19 +47,24 @@
 
 <script>
 import axios from "axios";
-import Vue from "vue";
-import qs from "qs";
-import { Toast } from "vant";
+// import qs from "qs";
+import { NavBar, Field, Button, Dialog, Toast } from "vant";
 export default {
   data() {
     return {
-      show: false,
-      show1: false,
-      message: {},
+      isShow: false,
+      isShow1: false,
+      message: {msg_mer:"得心互力网络科技有限公司"},
       money: "",
       comment: "",
       token: ""
     };
+  },
+  components:{
+    "van-dialog": Dialog.Component,
+    "van-button": Button, 
+    "van-field": Field, 
+    "van-nav-bar": NavBar
   },
   mounted() {
     this.token = localStorage.getItem("token");
@@ -77,33 +87,13 @@ export default {
           console.log(error);
         });
     },
-    beforeClose1() {
-      if (!this.money) {
-        Toast.fail(" 请输入金额");
-        return;
-      } else {
-        if (action === "confirm") {
-          this.manYi();
-        }
-      }
-    },
-    beforeClose2() {
-      if (!this.comment) {
-        Toast.fail(" 请输入备注");
-        return;
-      } else {
-        if (action === "confirm") {
-          this.buManYi();
-        }
-      }
-    },
     manYi() {
       if (!this.money) {
         Toast.fail({
           message: "请输入金额",
-          duration: 500
+          duration: 2000
         });
-        this.show = true;
+        this.isShow = true;
         return;
       }
       axios
@@ -135,7 +125,7 @@ export default {
       if (!this.comment) {
         Toast.fail({
           message: "请输入备注",
-          duration: 500
+          duration: 2000
         });
         return;
       }
@@ -165,12 +155,12 @@ export default {
         });
     },
     agree() {
-      this.show = true;
+      this.isShow = true;
     },
     disagree() {
-      this.show1 = true;
+      this.isShow1 = true;
     }
-  }
+  },
 };
 </script>
 <style>

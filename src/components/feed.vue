@@ -1,7 +1,6 @@
 <template>
   <div class="s">
     <van-nav-bar class="topbar" title="用户反馈" left-text left-arrow @click-left="$router.go(-1)" />
-
     <div class="s11" v-if="message.status == 1">
       <div class="s1">
         <h1>满意实付金额</h1>
@@ -23,9 +22,8 @@
 </template>
 <script>
 import axios from "axios";
-import Vue from "vue";
 // import qs from "qs";
-import { Toast } from "vant";
+import { Toast, NavBar, Button } from "vant";
 export default {
   data() {
     return {
@@ -63,6 +61,10 @@ export default {
           console.log(error);
         });
     }
+  },
+  components:{
+    "van-button": Button, 
+    "van-nav-bar": NavBar
   }
 };
 </script>

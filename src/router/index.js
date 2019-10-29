@@ -14,7 +14,7 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/components/Login.vue'),
+      component: () => import('@/components/login.vue'),
       meta: {
         tabbar: false,
         title: '登录'
@@ -23,7 +23,7 @@ const router = new Router({
     {
       path: '/register',
       name: 'register',
-      component: () => import('@/components/Register.vue'),
+      component: () => import('@/components/register.vue'),
       meta: {
         tabbar: false,
         title: '注册'
@@ -32,7 +32,7 @@ const router = new Router({
     {
       path: '/home',
       name: 'home',
-      component: () => import('@/components/index.vue'),
+      component: () => import('@/components/home.vue'),
       meta: {
         tabbar: true,
         title: '首页'
@@ -41,7 +41,7 @@ const router = new Router({
     {
       path: '/indexList',
       name: 'indexList',
-      component: () => import('@/components/IndexList.vue'),
+      component: () => import('@/components/indexList.vue'),
       meta: {
         tabbar: true,
         title: '首页'

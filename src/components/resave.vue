@@ -19,14 +19,13 @@
               <div>目的地： {{item.address}}</div>
               <div>金额： {{item.money}}</div>
             </div>
-            <!--                    <div class="money1">确认</div>-->
             <div class="money1" v-if="item.status==1" @click="confirms(item.id)">确认</div>
             <div class="money1 money2" v-if="item.status==-1">已确认</div>
           </div>
         </van-list>
       </van-pull-refresh>
     </div>
-    <div class="tabbar">
+    <!-- <div class="tabbar">
       <div @click="turnToHome">
         <van-icon name="wap-home"></van-icon>
         <div>首页</div>
@@ -38,16 +37,16 @@
       <div class="center">
         <van-icon name="plus" @click="turnToHome"></van-icon>
       </div>
-    </div>
+    </div> -->
+    <tab-bar index="" my="active"></tab-bar>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import { Toast } from "vant";
-import { getRelease } from "@/apis/index";
+import { Toast, Icon, PullRefresh, List } from "vant";
+import tabBar from "./tabbar.vue";
 export default {
-  name: "IndexList",
   data() {
     return {
       list: [],
@@ -63,7 +62,6 @@ export default {
     };
   },
   created() {
-    // this.getData()
     this.userInfo = JSON.parse(localStorage.getItem("userInfo"));
     this.token = localStorage.getItem("token");
   },
@@ -147,62 +145,64 @@ export default {
           });
       }, 500);
     }
+  },
+  components: {
+    "van-icon": Icon,
+    "van-list": List,
+    "van-pull-refresh": PullRefresh,
+    tabBar
   }
 };
 </script>
 
 <style lang="less" scoped>
-page {
-  background-color: #f4f4f4;
-}
+// .tabbar {
+//   height: 45px;
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 6px 15%;
+//   position: fixed;
+//   left: 0;
+//   width: 70%;
+//   bottom: 0;
+//   z-index: 99999;
+//   background-color: #fff;
 
-.tabbar {
-  height: 45px;
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 15%;
-  position: fixed;
-  left: 0;
-  width: 70%;
-  bottom: 0;
-  z-index: 99999;
-  background-color: #fff;
+//   .center {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     position: absolute;
+//     top: -30px;
+//     left: 40vw;
+//     width: 20vw;
+//     height: 60px;
+//     border-radius: 50%;
+//     background-color: #fff;
+//     z-index: 6666;
+//     color: #afafaf;
 
-  .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -30px;
-    left: 40vw;
-    width: 20vw;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #fff;
-    z-index: 6666;
-    color: #afafaf;
+//     i {
+//       font-size: 26px;
+//       font-weight: bold;
+//     }
+//   }
 
-    i {
-      font-size: 26px;
-      font-weight: bold;
-    }
-  }
+//   > div {
+//     text-align: center;
+//     color: #eb2211;
+//     font-size: 12px;
 
-  > div {
-    text-align: center;
-    color: #eb2211;
-    font-size: 12px;
+//     i {
+//       font-size: 22px;
+//       font-weight: bold;
+//     }
+//   }
 
-    i {
-      font-size: 22px;
-      font-weight: bold;
-    }
-  }
-
-  .active {
-    color: #afafaf;
-  }
-}
+//   .active {
+//     color: #afafaf;
+//   }
+// }
 
 .home {
   /*height: 100vh;*/

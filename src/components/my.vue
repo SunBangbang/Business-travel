@@ -76,7 +76,7 @@
         <div class="login_out" @click="loginOut">退出登录</div>
       </van-col>
     </van-row>
-    <div class="tabbar">
+    <!-- <div class="tabbar">
       <div class="active" @click="turnTo">
         <van-icon name="wap-home"></van-icon>
         <div>首页</div>
@@ -88,14 +88,15 @@
       <div class="center">
         <van-icon name="plus" @click="turnTo"></van-icon>
       </div>
-    </div>
+    </div> -->
+    <tab-bar index="active" my=""></tab-bar>
   </div>
 </template>
 
 <script>
 import { Row, Col, Icon } from "vant";
+import tabbar from "./tabbar.vue";
 export default {
-  name: "my",
   data() {
     return {
       userInfo: {}
@@ -138,53 +139,59 @@ export default {
         name: "login"
       });
     }
+  },
+  components:{
+    "van-col": Col, 
+    "van-row": Row,
+    "van-icon": Icon,
+    tabBar
   }
 };
 </script>
 
 <style lang="less" scoped>
-.tabbar {
-  height: 45px;
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 15%;
-  position: fixed;
-  left: 0;
-  width: 70%;
-  bottom: 0;
-  z-index: 99999;
-  background-color: #fff;
-  .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -30px;
-    left: 40vw;
-    width: 20vw;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #fff;
-    z-index: 6666;
-    color: #afafaf;
-    i {
-      font-size: 26px;
-      font-weight: bold;
-    }
-  }
-  > div {
-    text-align: center;
-    color: #eb2211;
-    font-size: 12px;
-    i {
-      font-size: 22px;
-      font-weight: bold;
-    }
-  }
-  .active {
-    color: #afafaf;
-  }
-}
+// .tabbar {
+//   height: 45px;
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 6px 15%;
+//   position: fixed;
+//   left: 0;
+//   width: 70%;
+//   bottom: 0;
+//   z-index: 99999;
+//   background-color: #fff;
+//   .center {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     position: absolute;
+//     top: -30px;
+//     left: 40vw;
+//     width: 20vw;
+//     height: 60px;
+//     border-radius: 50%;
+//     background-color: #fff;
+//     z-index: 6666;
+//     color: #afafaf;
+//     i {
+//       font-size: 26px;
+//       font-weight: bold;
+//     }
+//   }
+//   > div {
+//     text-align: center;
+//     color: #eb2211;
+//     font-size: 12px;
+//     i {
+//       font-size: 22px;
+//       font-weight: bold;
+//     }
+//   }
+//   .active {
+//     color: #afafaf;
+//   }
+// }
 .user {
   height: 100vh;
   background-color: #f4f4f4;

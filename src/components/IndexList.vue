@@ -21,7 +21,6 @@
 <script>
 import { getRelease } from "@/apis/index";
 export default {
-  name: "IndexList",
   data() {
     return {
       list: [],
@@ -45,9 +44,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-page {
-  background-color: #f4f4f4;
-}
 .home {
   /*height: 100vh;*/
   background-color: #f4f4f4;
@@ -66,7 +62,7 @@ page {
     background-color: #eb2211;
   }
   .content {
-    margin-top: 50px;
+    margin-top:60px;
     .listItem {
       background-color: #ffffff;
       display: flex;
