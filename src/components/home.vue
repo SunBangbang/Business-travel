@@ -72,7 +72,7 @@
         <van-icon name="plus"></van-icon>
       </div>
     </div> -->
-    <tab-bar index="" my="active"></tab-bar>
+    <tab-bar index="" my="active" @turnMy="turnTo"></tab-bar>
   </div>
 </template>
 

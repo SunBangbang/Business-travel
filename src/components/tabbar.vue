@@ -9,7 +9,7 @@
       <div>我的</div>
     </div>
     <div class="center">
-      <van-icon name="plus" @click="turnToHome"></van-icon>
+      <van-icon name="plus" @click="turnToCenter"></van-icon>
     </div>
   </div>
 </template>
@@ -23,17 +23,14 @@ export default {
   },
   methods: {
     turnToHome(){
-      var path = this.$route.path;
-      if(path == "/home") return;
-        this.$router.push({
-          name: "resave"
-        });
+      this.$emit("turnIndex");
     },
     turnToMy(){
-      this.$router.push({
-        name: "my"
-      });
+       this.$emit("turnMy");
     },
+    turnToCenter(){
+      this.$emit("turnCenter");
+    }
   },
   components: {
     "van-icon": Icon,

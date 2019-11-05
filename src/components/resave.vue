@@ -38,7 +38,7 @@
         <van-icon name="plus" @click="turnToHome"></van-icon>
       </div>
     </div> -->
-    <tab-bar index="" my="active"></tab-bar>
+    <tab-bar index="" my="active" @turnIndex="turnToHome" @turnMy="turnToMy" @turnCenter="turnToHome"></tab-bar>
   </div>
 </template>
 

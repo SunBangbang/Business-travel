@@ -89,13 +89,13 @@
         <van-icon name="plus" @click="turnTo"></van-icon>
       </div>
     </div> -->
-    <tab-bar index="active" my=""></tab-bar>
+    <tab-bar index="active" my="" @turnIndex="turnTo" @turnCenter="turnTo"></tab-bar>
   </div>
 </template>
 
 <script>
 import { Row, Col, Icon } from "vant";
-import tabbar from "./tabbar.vue";
+import tabBar from "./tabbar.vue";
 export default {
   data() {
     return {
